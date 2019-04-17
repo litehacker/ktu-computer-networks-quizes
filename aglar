@@ -1,0 +1,155 @@
+................................2002 2/arasinav.................................
+
+s2.a:
+Lan'lari birbirine baglamak icin tekrarlayicilar kullanilmis olsaydi, en fazla
+kac LAN segmenti birbirine baglanmis olurdu? Osegmentlerdeki toplam bilgisayar
+sayisi nasil belirlenirdi?
+
+Cevap: T
+    Tekrarlayıcı(Repeater): Ağdaki işaretleri kuvvetlendirerek ağ
+    segmentlerinin genişletilmesini sağlar. Filtreleme ve trafik düzenleme
+    yetenekleri yoktur. Tekrarlayıcı verinin içeriğiyle ilgilenmediği için
+    alıcı adresi göremez ve verinin nereye adreslendiğini sezemez. istenildiği
+    kadar tekrarlayıcı koyulup genişletilemez. Bunun da bir sınırlaması vardır
+    ve bunu seçilen yöntem belirler. Örneğin en fazla dört ağ dilimi birbirine
+    bağlanabilir gibi bir sınırlama olabilir.
+
+s2.b:
+Ayni durum icin tekrarlayici yerine kopru (bridge) kullanilmis olsa idi sorularin
+cevabi ne olurdu?
+
+Cevap:
+    Köprüler:İki ağ segmentini birbirine bağlarlar. Ağda segmentleme yapabilirler.
+    Trafik düzenleme yetenekleri vardır. Ancak Broadcastları iletirler.
+    Tekrarlayıcılar, kendilerine gelen bütün işaretleri kuvvetlendirip gönderirler.
+    Ancak köprüler daha akllıdırlar. Eğer gelen bilgi karşı taraftaki bir bilgisayara
+    gidiyor ise gönderilir aksi halde iletilmez. Bu nedenle farklı LAN’larini
+    birleştirmek için kullanılırlar.
+
+s4.a:
+NIC nedir? Ne yapar?
+
+Cevap:
+    A network interface card (NIC) is a hardware component, typically a circuit
+    board or chip, which is installed on a computer so that it can connect to a
+    network.
+
+    Görevleri:
+    *Adres tanımlama
+    *CRC hesaplama
+    *Çerçeve tanımlama
+    *Çerçeve gönderme/alma
+
+s4.b:
+Ethernet frame'lerde veri bytelerin cerceve tamamiyla kiyaslayarak en uzun ve en
+kisasinin yuzdelik payini soyleyin.
+
+Cevap:
+    Ethernet cercevesinde data (payload) sektoru 46-1500 byte arasinda olabilir.
+    Geri kalanlar: Preable (8 byte), Destination Address (6 byte), Source Address
+    (6 byte), Type Lenght (2 byte), sonunda CRC (4 byte), etti 26 byte. En kisa veri
+    46 byte olsa, cercevenin tamami 46+26 byte olacaktir, en uzunu ise 1500+26byte.
+
+
+.................................2004, Final....................................
+s1.a:
+Bir iletisim protokolunun RTP desteklemesi icin protokolun ve donanimin sahip
+olmasi ozellikleri aciklayiniz.
+
+Cevap:
+    The most basic requirement for a general-purpose multimedia protocol is that it
+    allow similar applications to interoperate with each other. For example, it
+    should be possible for two independently implemented audioconferencing
+    applications to talk to each other and use the same method of encoding.
+
+s1.b
+RTP destekleyen bir protokolü, nasıl desteklediğini örnekleyerek açıklayınız.
+
+Cevap:
+    RTP'nin altında olan UDP ile IP protokolleri multimenya (ses veya görüntü)
+    aktarımını gerçek zamanlılığını verinin iletilip iletilmediğini kontrol etmeyerek
+    hızlı görderim yapılmasını sağlar.
+
+s2.a:
+İki ayrı yerel ağı bir router ile bağlanması için kaç IP gerekir? Neden? Bu
+adresler nasıl belirlenir, bu iki ağın kapasitesini arttırmak için hangi yöntem
+önerirsiniz veya hangileri kullanılır? Bu durumda kaç IP adrese ihtiyacınız
+olacaktır?
+
+Cevap:
+    Bir router, iki switch ile tasarlanabilir. Birinci switch veya ağın adresi
+    192.168.1.0/24 olsun, ikinci 192.168.2.0/24 altındai bilgisayar IP'lerin son
+    sayıları arttırılacaktır, farklı adrese sahip olmaları için. Her bilgisayar
+    kendi ağına unique IP adrese sahip olmak zorunda. Router'i iki ağa bağlayıp
+    adres attamamız lazım. Bilgisayarları çoğaltılacağı taktirde subnetting
+    yöntemleri kullanılmalı.
+s2.b:
+Özet* farklı sınıf IP adresleri aralarında nasıl haberleşebiliyor?
+
+Cevap:
+    Her switch veya router kendi altında olan ağları kaydeder. VLAN bunu LAN lar
+    arası bile gerçekleşmesini sağlar.
+
+s3.a
+ADSL nedir? Nasıl çalışır? Mevcut bant genişliğini en etkin şekilde nasıl
+kullanılır?
+
+Cevap:
+    ADSL, uzunca deyişle asimetrik sayısal abone hattı, kullanıcılara bakır telefon
+    hattı üzerinden konuşmanın yanısıra yüksek hızlarda asimetrik veri haberleşmesi
+    ortamı sağlayan bir teknolojidir.
+    ADSL baglantı için 3 hat kullanılılr 1) download max 8.448 Mbps 2) upload max
+    640 Kbps (-64 kbps control channel) 3) telefon
+
+s4.a
+En iyi araclari secen organizasyonlar Hub yerine Switch secerler. Neden? Switchler
+yonlendirmeyi nasil yapar?
+
+Cevap:
+    Switchler Hub'lar gibi calisir, farkli olarak gonderi esnasinda isteklerin
+    geldigi cihazin MAC adresini de kaydeder ve Hub lardan farkli olarak agi gereksiz
+    trafikten korur, cunku veri geldiginde butun cihazlara broadcast yapmaz. Boyle
+    bir yontem guvenligi de sarsar.
+
+s4.b
+    Bir kopru token ring ile Ethernet aglari birbirine baglayabilirler mi? bu isi
+    switch yapabilir mi?
+
+ Cevap:
+    switch istedigimiz bilgisayara MAC adresine bagli gonderi yaptigi icin, teknik
+    olarak sirayla gonderi yapilabilir. HUB ile yapilamaz cunku herkese ayni anda
+    gonderi yapar.
+
+
+
+................................2004, 1. Arasınav...............................
+s1.a:
+3 farklı teknoloji kullanarak bir LAN ağı çiziniz:
+
+Cevap:
+    http://www.downloads.netgear.com/files/answer_media/media/images/answer_10365/Diagram%204.jpg
+
+s1.b:
+    Burada kullanilan donanim ve yazilimlarin sagladigi fonksiyonlari maddeler
+    halinde yaziniz.
+
+Cevap:
+    (Router): Disariyla LAN baglantisini saglar (LAN da sart DEGILDIR)
+    Bridge: Farkli LAN aglari birbirine baglar
+    Switch: Aglar icinde MAC adreslerine bagli cihazlari haberlestirir
+    Client: Ikide bir istek atan, alan cihaz.
+
+s3.a
+Fiber kabloyla bakir kabloyu kiyaslayiniz hangisini neden tercih ederdiniz
+
+Cevap:
+    Uzun mesafelerde fiber kablo sinyali daha az bozar
+    bakir kablonun maliyeti ve onarimi daha azdir.
+
+s3.b
+Ag guclu bir elektrik motorun yaninda kurulmus olsa, hangi teknolijiyi tercih
+ederdiniz, neden?
+
+Cevap:
+    Motorun manyetik sinyali elektrik veri sinyalini bozabilir, agin veri kaybi
+    yukselir. Fiber kablo olsa isik manyetiginden etkilenmeyecektir.
